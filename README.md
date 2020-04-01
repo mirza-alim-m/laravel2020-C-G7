@@ -93,4 +93,8 @@ laravel2020 class C Group 7
 
 SI Penjualan Elektronik
 
+<<<<<<< HEAD
 Jonatan Kefin M, Widastuti , Rizqi Pupitasari.
+=======
+Jonatan Kefin M, Widastuti, Rizqi Pupitasari.
+>>>>>>> 09cd2b853cec5e32fa0012987a5f6660730ba8b1
