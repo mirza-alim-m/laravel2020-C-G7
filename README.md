@@ -32,8 +32,7 @@ If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Lar
 We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
 
 - **[Vehikl](https://vehikl.com/)**
-<<<<<<< HEAD
-<<<<<<< HEAD
+
 - *[Tighten Co.](https://tighten.co)*
 - *[Kirschbaum Development Group](https://kirschbaumdevelopment.com)*
 - *[64 Robots](https://64robots.com)*
@@ -42,9 +41,7 @@ We would like to extend our thanks to the following sponsors for funding Laravel
 - *[British Software Development](https://www.britishsoftware.co)*
 - **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
 - *[DevSquad](https://devsquad.com)*
-=======
-=======
->>>>>>> a195ddc2e7cd69618318f3fb699cd28bb8b5f29e
+
 - **[Tighten Co.](https://tighten.co)**
 - **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
 - **[64 Robots](https://64robots.com)**
@@ -53,10 +50,7 @@ We would like to extend our thanks to the following sponsors for funding Laravel
 - **[British Software Development](https://www.britishsoftware.co)**
 - **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
 - **[DevSquad](https://devsquad.com)**
-<<<<<<< HEAD
->>>>>>> a195ddc2e7cd69618318f3fb699cd28bb8b5f29e
-=======
->>>>>>> a195ddc2e7cd69618318f3fb699cd28bb8b5f29e
+
 - [UserInsights](https://userinsights.com)
 - [Fragrantica](https://www.fragrantica.com)
 - [SOFTonSOFA](https://softonsofa.com/)
@@ -99,12 +93,4 @@ laravel2020 class C Group 7
 
 SI Penjualan Elektronik
 
-<<<<<<< HEAD
-<<<<<<< HEAD
 Jonatan Kefin M, Widastuti, Rizqi Pupitasari.
-=======
-Jonatan Kefin M, Widastuti, Rizqi Pupitasari.
->>>>>>> a195ddc2e7cd69618318f3fb699cd28bb8b5f29e
-=======
-Jonatan Kefin M, Widastuti, Rizqi Pupitasari.
->>>>>>> a195ddc2e7cd69618318f3fb699cd28bb8b5f29e
