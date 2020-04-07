@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Pelanggan;
+use DataTables;
 
 class DataPelanggan extends Controller
 {
@@ -14,14 +15,33 @@ class DataPelanggan extends Controller
      */
     public function index(Request $request)
     {
-        $dataPelanggan = Pelanggan::all();
+        // $dataPelanggan = Pelanggan::all();
 
 
-        if($request->query('alamat')){
-            $dataPelanggan = Pelanggan::where('alamat', request()->alamat)->get();
+        // if($request->query('alamat')){
+        //     $dataPelanggan = Pelanggan::where('alamat', request()->alamat)->get();
+        // }
+
+        if ($request->ajax()) {
+            $data = Pelanggan::latest()->get();
+            return Datatables::of($data)
+                    ->addIndexColumn()
+                    ->addColumn('action', function($row){
+                           $btn = ' <form action="'.route('pelanggan.destroy',$row->id) .'" method="POST">
+                            <a href="'.route('pelanggan.show',$row->id).'" class="badge badge-primary">Detail</a>
+                            <a href="'.route('pelanggan.edit',$row->id).'" class="badge badge-warning">Edit</a>
+                            '.csrf_field().'
+                            '.method_field("DELETE").'
+                            <button type="submit" class="badge badge-danger" onclick="return confirm("Yakin ingin menghapus data?")">Hapus</button>
+                            </form>';
+
+                            return $btn;
+                    })
+                    ->rawColumns(['action'])
+                    ->make(true);
         }
 
-        return view('Data_Pelanggan.data-pelanggan', compact('dataPelanggan'));
+        return view('Data_Pelanggan.data-pelanggan');
     }
 
     /**
