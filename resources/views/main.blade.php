@@ -7,9 +7,15 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript" src="{{ asset('dataTables/jquery.min.js') }}"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <link href="{{ asset('dataTables/jquery.dataTables.min.css') }}" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="{{ asset('dataTables/dataTables.bootstrap.min.css') }}">
+
+    <script type="text/javascript" src="{{ asset('dataTables/dataTables.bootstrap.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('dataTables/jquery.dataTables.min.js') }}"></script>
+    
     <title>@yield('title')</title>
   </head>
   <body>

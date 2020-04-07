@@ -18,6 +18,8 @@ Route::get('/', function () {
 });
 
  Route::resource('karyawan', 'DataKaryawan');
+ Route::get('karyawan/json/fetch','DataKaryawan@json')->name('karyawan.fetch');
+
 
 Route::resource('barang', 'DataBarang');
 

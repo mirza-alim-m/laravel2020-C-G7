@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Karyawan;
+use DataTables;
+use DB;
+
 
 class DataKaryawan extends Controller
 {
@@ -13,15 +16,37 @@ class DataKaryawan extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index(Request $request)
+
+
     {
-        $dataKaryawan = Karyawan::all();
-
-
-        if($request->query('jabatan')){
-            $dataKaryawan = Karyawan::where('jabatan', request()->jabatan)->get();
+        if ($request->ajax()) {
+            $data = Karyawan::latest()->get();
+            return Datatables::of($data)
+                    ->addIndexColumn()
+                    // ->addColumn('action', function($row){
+                    //        $btn = '<a href="'.route("karyawan.show",$row->id).'" class="badge badge-primary">Detail</a>';
+                    //         $btn .= '<a href="'.route("karyawan.edit",$row->id).'" class="badge badge-primary">Edit</a>';
+                    //         $btn .= '<a href="'.route("karyawan.destroy",$row->id).'" class="badge badge-primary">Hapus</a>';
+                    //         $btn .= "<a href='".route('karyawan.destroy', $row->id)."' class='btn badge badge-primary' name='tombol_hapus' onclick='return confirm(\"Apakah Anda yakin ingin menghapus data ini? \")' title='Hapus Data'> Hapus</a>";
+     
+                    //         return $btn;
+                    // })
+                    ->addColumn('action', function($row){
+                           $btn = ' <form action="'.route('karyawan.destroy',$row->id) .'" method="POST">
+                            <a href="'.route('karyawan.show',$row->id).'" class="badge badge-primary">Detail</a>
+                            <a href="'.route('karyawan.edit',$row->id).'" class="badge badge-warning">Edit</a>
+                            '.csrf_field().'
+                            '.method_field("DELETE").'
+                            <button type="submit" class="badge badge-danger" onclick="return confirm("Yakin ingin menghapus data?")">Hapus</button>
+                            </form>';
+     
+                            return $btn;
+                    })
+                    ->rawColumns(['action'])
+                    ->make(true);
         }
 
-        return view('Data_Karyawan.data-karyawan', compact('dataKaryawan'));
+        return view('Data_karyawan.data-karyawan');
     }
 
     /**
@@ -67,8 +92,8 @@ class DataKaryawan extends Controller
      */
     public function show($id)
     {
-        $dataKaryawan = Karyawan::find($id);
-        return view('Data_Karyawan.detail-karyawan', compact('dataKaryawan'));
+        /*$dataKaryawan = Karyawan::find($id);
+        return view('Data_Karyawan.detail-karyawan', compact('dataKaryawan'));*/
     }
 
     /**
@@ -79,7 +104,7 @@ class DataKaryawan extends Controller
      */
     public function edit($id)
     {
-         $dataKaryawan= Karyawan::find($id);
+        $dataKaryawan= Karyawan::find($id);
         return view('Data_Karyawan.edit-karyawan',compact('dataKaryawan'));
     }
 
