@@ -36,7 +36,7 @@
                             <div class="col-xs-12 col-sm-12 col-md-12">
                                 <div class="form-group">
                                     <strong>Jenis:</strong>
-                                    <input type="text" name="jenis" class="form-control" placeholder="Jenis HP">
+                                    <input type="text" name="jenis" class="form-control" placeholder="Jenis ">
                                 </div>
                             </div>
 
@@ -56,13 +56,13 @@
                             <div class="col-xs-12 col-sm-12 col-md-12">
                                 <div class="form-group">
                                     <strong>Type:</strong>
-                                    <input type="text" class="form-control" name="type" placeholder="Type Hp">
+                                    <input type="text" class="form-control" name="type" placeholder="Type ">
                                 </div>
                             </div>
                             <div class="col-xs-12 col-sm-12 col-md-12">
                                 <div class="form-group">
                                     <strong>Jumlah:</strong>
-                                    <input type="text" class="form-control" name="jumlah" placeholder="Jumlah HP">
+                                    <input type="text" class="form-control" name="jumlah" placeholder="Jumlah ">
                                 </div>
                             </div>
                             <div class="col-xs-12 col-sm-12 col-md-12 text-center">

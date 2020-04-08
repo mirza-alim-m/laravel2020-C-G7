@@ -4,7 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Barang;
-
+use DataTables;
+use DB;
 class DataBarang extends Controller
 {
     /**
@@ -14,13 +15,26 @@ class DataBarang extends Controller
      */
     public function index(Request $request)
     {
-        $dataBarang = Barang::all();
+        if ($request->ajax()) {
+            $data = Barang::latest()->get();
+            return Datatables::of($data)
+                    ->addIndexColumn()
+                    ->addColumn('action', function($row){
+                           $btn = ' <form action="'.route('barang.destroy',$row->id) .'" method="POST">
+                            <a href="'.route('barang.show',$row->id).'" class="badge badge-primary">Detail</a>
+                            <a href="'.route('barang.edit',$row->id).'" class="badge badge-warning">Edit</a>
+                            '.csrf_field().'
+                            '.method_field("DELETE").'
+                            <button type="submit" class="badge badge-danger" onclick="return confirm("Yakin ingin menghapus data?")">Hapus</button>
+                            </form>';
 
-        if($request->query('jenis')){
-            $dataBarang = Barang::where('jenis', request()->jenis)->get();
+                            return $btn;
+                    })
+                    ->rawColumns(['action'])
+                    ->make(true);
         }
 
-        return view('Data_Barang.data-barang', compact('dataBarang'));
+        return view('Data_Barang.data-barang');
     }
 
     /**

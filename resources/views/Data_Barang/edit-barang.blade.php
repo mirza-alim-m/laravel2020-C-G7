@@ -38,7 +38,7 @@
                             <div class="col-xs-12 col-sm-12 col-md-12">
                                 <div class="form-group">
                                     <strong>Jenis:</strong>
-                                    <input type="text" value="{{ $dataBarang['jenis'] }}" name="jenis" class="form-control" placeholder="Jenis HP">
+                                    <input type="text" value="{{ $dataBarang['jenis'] }}" name="jenis" class="form-control" placeholder="Jenis ">
                                 </div>
                             </div>
                             <div class="col-xs-12 col-sm-12 col-md-12">
@@ -55,14 +55,14 @@
                             </div>
                             <div class="col-xs-12 col-sm-12 col-md-12">
                                 <div class="form-group">
-                                    <strong>TypeHp:</strong>
-                                    <input type="text" value="{{ $dataBarang['type'] }}" class="form-control" name="type" placeholder="type HP">
+                                    <strong>Type:</strong>
+                                    <input type="text" value="{{ $dataBarang['type'] }}" class="form-control" name="type" placeholder="type ">
                                 </div>
                             </div>
                             <div class="col-xs-12 col-sm-12 col-md-12">
                                 <div class="form-group">
-                                    <strong>JumlahHp:</strong>
-                                    <input type="text" value="{{ $dataBarang['jumlah'] }}" class="form-control" name="jumlah" placeholder="Jumlah Hp">
+                                    <strong>Jumlah:</strong>
+                                    <input type="text" value="{{ $dataBarang['jumlah'] }}" class="form-control" name="jumlah" placeholder="Jumlah ">
                                 </div>
                             </div>
                             <div class="col-xs-12 col-sm-12 col-md-12 text-center">

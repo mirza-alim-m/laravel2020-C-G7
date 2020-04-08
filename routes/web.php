@@ -22,6 +22,7 @@ Route::get('/', function () {
 
 
 Route::resource('barang', 'DataBarang');
+Route::get('barang/json/fetch','DataBarang@json')->name('barang.fetch');
 
 Route::resource('pelanggan', 'DataPelanggan');
 
