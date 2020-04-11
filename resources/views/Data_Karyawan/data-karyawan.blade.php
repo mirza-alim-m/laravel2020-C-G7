@@ -1,6 +1,6 @@
 @extends('main')
 
-@section('title', 'Laravel - SI Toko Elektronik')
+@section('title', 'Laravel - Toko Elektronik')
 
 @section('content')
     <div class="container">
