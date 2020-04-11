@@ -89,21 +89,21 @@ If you discover a security vulnerability within Laravel, please send an e-mail t
 The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
 
 ## Cara Menjalankan Project ini
--Lakukan Clone atau Download Project ini
--Setah itu buka project tersebut di Command Prompt Windows atau Git (Kami menggunakan Git)
--Pada Git Bash ketikan perintah "cp .env.example .env"
--Lalu buka ".env" pada text editor
--Ubah nama database sesuai yang ada di project, pastikan database sudah di import ke localhost (database laravel2020-c-g7.sql berada di folder database)
--Ketikan perintah "composer Install"
--Lalu jalankan perintah "php artisan key:generate"
--Setelah itu jalankan project dengan perintah "php artisan serve"
+- Lakukan Clone atau Download Project ini
+- Setah itu buka project tersebut di Command Prompt Windows atau Git (Kami menggunakan Git)
+- Pada Git Bash ketikan perintah "cp .env.example .env"
+- Lalu buka ".env" pada text editor
+- Ubah nama database sesuai yang ada di project, pastikan database sudah di import ke localhost (database laravel2020-c-g7.sql berada di folder database)
+- Ketikan perintah "composer Install"
+- Lalu jalankan perintah "php artisan key:generate"
+- Setelah itu jalankan project dengan perintah "php artisan serve"
 
 # laravel2020-C-G7
 laravel2020 class C Group 7
 
 SI Penjualan Elektronik
 
-Nama Anggota
-Jonatan Kefin M     (17090026)
-Rizqi Pupitasari    (17090070)
-Widastuti           (17090075)
+# Nama Anggota
+- Jonatan Kefin M     (17090026)
+- Rizqi Pupitasari    (17090070)
+- Widastuti           (17090075)
