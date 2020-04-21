@@ -4,13 +4,9 @@
 - Pada Git Bash ketikan perintah "cp .env.example .env"
 - Lalu buka ".env" pada text editor dan ubah nama database
 - Ketikan perintah "composer install"
-- Ketikan perintah "php artisan migrate"
 - Lalu jalankan perintah "php artisan key:generate"
+- Import laravel2020-c-g7.sql yg berada di folder database
 - Project sudah bisa dilanjakan dengan perintah "php artisan serve"
-
-
-- Jika ingin menggunakan database kami, langusung saja import database laravel2020-c-g7.sql ke localhost
-- Database laravel2020-c-g7.sql berada di folder database
 
 # Kelompok 7 | SI Penjualan Elektronik
 - Jonatan Kefin M     (17090026)
