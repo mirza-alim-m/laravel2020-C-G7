@@ -26,7 +26,7 @@ class KategoriBarangController extends Controller
      */
     public function create()
     {
-        return view('Kategori_barang.create-kategori');
+        return view('Kategori_Barang.create-kategori');
     }
 
     /**
@@ -57,7 +57,7 @@ class KategoriBarangController extends Controller
     public function show($id)
     {
         $dataKategori = BarangKategori::find($id);
-        return view('Data_Kategori.data-kategori', compact('dataKategori'));
+        return view('Kategori_Barang.detail-kategori', compact('dataKategori'));
     }
 
     /**
@@ -69,7 +69,7 @@ class KategoriBarangController extends Controller
     public function edit($id)
     {
          $dataKategori= BarangKategori::find($id);
-        return view('Kategori_barang.edit-kategori',compact('dataKategori'));
+        return view('Kategori_Barang.edit-kategori',compact('dataKategori'));
     }
 
     /**
