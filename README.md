@@ -9,9 +9,9 @@
 - Project sudah bisa dilanjakan dengan perintah "php artisan serve"
 
 # Kelompok 7 | SI Penjualan Elektronik
-- Jonatan Kefin M     (17090026)
-- Rizqi Pupitasari    (17090070)
-- Widastuti           (17090075)
+- Jonatan Kefin M       (17090026)
+- Widiastuti            (17090070)
+- Rizqi Pupitasari      (17090075)
 
 # Demo
 http://laravel-c7.tegalian.com/
