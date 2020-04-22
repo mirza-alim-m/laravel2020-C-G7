@@ -62,8 +62,8 @@ class DataKaryawan extends Controller
 
     public function show($id)
     {
-        /*$dataKaryawan = Karyawan::find($id);
-        return view('Data_Karyawan.detail-karyawan', compact('dataKaryawan'));*/
+        $dataKaryawan = Karyawan::find($id);
+        return view('Data_Karyawan.detail-karyawan', compact('dataKaryawan'));
     }
 
     public function edit($id)

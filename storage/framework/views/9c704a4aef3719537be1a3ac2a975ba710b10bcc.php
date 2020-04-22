@@ -1,4 +1,6 @@
-<?php $__env->startSection('title', 'Laravel - Data Penjualan Toko'); ?>
+
+
+<?php $__env->startSection('title', 'Laravel - Toko Elektronik'); ?>
 
 <?php $__env->startSection('content'); ?>
     <div class="container">

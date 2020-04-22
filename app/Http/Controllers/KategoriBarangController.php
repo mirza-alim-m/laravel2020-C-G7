@@ -56,8 +56,8 @@ class KategoriBarangController extends Controller
      */
     public function show($id)
     {
-        // $dataKategori = BarangKategori::find($id);
-        // return view('Data_Kategori.data-kategori', compact('dataKategori'));
+        $dataKategori = BarangKategori::find($id);
+        return view('Data_Kategori.data-kategori', compact('dataKategori'));
     }
 
     /**
