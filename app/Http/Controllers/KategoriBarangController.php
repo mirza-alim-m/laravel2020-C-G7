@@ -16,7 +16,7 @@ class KategoriBarangController extends Controller
     {
         $dataKategori = BarangKategori::all();
 
-        return view('Kategori_barang.data-kategori', compact('dataKategori'));
+        return view('Kategori_Barang.data-kategori', compact('dataKategori'));
     }
 
     /**

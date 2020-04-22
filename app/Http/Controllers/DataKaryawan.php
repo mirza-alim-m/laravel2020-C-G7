@@ -33,7 +33,7 @@ class DataKaryawan extends Controller
                     ->make(true);
         }
         
-        return view('Data_karyawan.data-karyawan');
+        return view('Data_Karyawan.data-karyawan');
     }
 
     public function create()
