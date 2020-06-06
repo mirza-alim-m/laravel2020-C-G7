@@ -17,7 +17,7 @@ class CreatePelangganTable extends Migration
             $table->increments('id');
             $table->string('nama', 100);
             $table->text('alamat');
-            $table->string('no_hp', 12);
+            $table->string('no_hp', 20);
             $table->timestamps();
         });
     }
