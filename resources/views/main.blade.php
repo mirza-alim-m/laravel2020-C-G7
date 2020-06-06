@@ -28,10 +28,22 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                 <div class="navbar-nav">
-                <a class="nav-item nav-link" href="/barang">Barang</a>
-                <a class="nav-item nav-link" href="/kategori">Kategori Barang</a>
-                <a class="nav-item nav-link" href="/karyawan">Karyawan</a>
-                <a class="nav-item nav-link" href="/pelanggan">Pelanggan</a>
+                    <a class="nav-item nav-link" href="/barang">Barang</a>
+                    <a class="nav-item nav-link" href="/kategori">Kategori Barang</a>
+                    <a class="nav-item nav-link" href="/karyawan">Karyawan</a>
+                    <a class="nav-item nav-link" href="/pelanggan">Pelanggan</a>
+                </div>
+            </div>
+            <div class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-hospopup="true" aria-expanded="false" href="#">{{ Auth::user()->name }}</a>
+                
+                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                    <a class="dropdown-item" href="{{ route('logout') }}"onclick="event.preventDefault();
+                        document.getElementById('logout-form').submit();">{{ __('Logout') }}
+                    </a>
+                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                        @csrf
+                    </form>
                 </div>
             </div>
         </nav>

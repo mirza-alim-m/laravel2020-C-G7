@@ -13,16 +13,38 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+
+// login dulu baru bisa management data
 Route::get('/', function () {
-    return view('Data_Barang/data-barang');
+    return view('auth/login');
 });
 
-Route::resource('karyawan', 'DataKaryawan');
-Route::get('karyawan/json/fetch','DataKaryawan@json')->name('karyawan.fetch');
 
-Route::resource('barang', 'DataBarang');
-Route::get('barang/json/fetch','DataBarang@json')->name('barang.fetch');
+// Route::resource('karyawan', 'DataKaryawan');
+// Route::get('karyawan/json/fetch','DataKaryawan@json')->name('karyawan.fetch');
 
-Route::resource('pelanggan', 'DataPelanggan');
+// Route::resource('barang', 'DataBarang');
+// Route::get('barang/json/fetch','DataBarang@json')->name('barang.fetch');
 
-Route::resource('kategori', 'KategoriBarangController');
+// Route::resource('pelanggan', 'DataPelanggan');
+// Route::resource('kategori', 'KategoriBarangController');
+
+
+
+Auth::routes();
+
+// route dashboard (setelah login berhasil)
+Route::get('/home', 'HomeController@index')->name('home');
+
+// route untuk menghindari akses sistem sebelum user login
+// jadi user login dulu baru bisa akses sistem management / CRUD nya 
+Route::group(['middleware' => 'auth'], function() {
+	Route::resource('/karyawan', 'DataKaryawan');
+	Route::get('karyawan/json/fetch','DataKaryawan@json')->name('karyawan.fetch');
+
+	Route::resource('barang', 'DataBarang');
+	Route::get('barang/json/fetch','DataBarang@json')->name('barang.fetch');
+
+	Route::resource('pelanggan', 'DataPelanggan');
+	Route::resource('kategori', 'KategoriBarangController');
+});
