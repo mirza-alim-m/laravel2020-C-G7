@@ -18,7 +18,7 @@ class CreateKaryawanTable extends Migration
             $table->string('nama', 100);
             $table->text('alamat');
             $table->string('jabatan', 100);
-            $table->string('no_hp', 12);
+            $table->string('no_hp', 20);
             $table->timestamps();
         });
     }
