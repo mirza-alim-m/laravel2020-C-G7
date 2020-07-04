@@ -20,7 +20,9 @@ class KaryawanSeeder extends Seeder
     			'nama' => $faker->name,
     			'alamat' => $faker->address,
     			'jabatan' => $faker->jobTitle,
-    			'no_hp' => $faker->e164PhoneNumber
+    			'no_hp' => $faker->e164PhoneNumber,
+                'foto' => $faker->text($maxNbChars = 10).'jpg',
+                'filepdf' => $faker->text($maxNbChars = 10).'pdf'
     		]);
     	}
     }

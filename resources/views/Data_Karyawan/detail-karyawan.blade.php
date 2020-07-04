@@ -40,6 +40,11 @@
                             <td style="border:0">:</td>
                             <td style="border:0">{{ $dataKaryawan['no_hp'] }}</td>
                           </tr>
+                          <tr>
+                            <th style="border:0">Foto</th>
+                            <td style="border:0">:</td>
+                            <td><img src='/foto_karyawan/{{ $dataKaryawan->foto }}' class='img-fluid img-thumbnails' style='width:80px; height:100px;'></td>
+                        </tr>
                         @else
                             <td colspan="4">Tidak dapat menampilkan detail data</td>
                         @endif

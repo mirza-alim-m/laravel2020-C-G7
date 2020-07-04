@@ -48,15 +48,35 @@ class DataKaryawan extends Controller
             'alamat' => 'required',
             'jabatan' => 'required|max:100',
             'no_hp' => 'required|max:12',
+            'foto' => 'required|file|image|mimes:jpeg,png,jpg|max:2048',
+            'filepdf' => 'required|file|mimes:pdf',
         ]);
-        Karyawan::create([
-            'nama' => $request->nama,
-            'alamat' => $request->alamat,
-            'jabatan' => $request->jabatan,
-            'no_hp' => $request->no_hp,
+        // Karyawan::create([
+        //     'nama' => $request->nama,
+        //     'alamat' => $request->alamat,
+        //     'jabatan' => $request->jabatan,
+        //     'no_hp' => $request->no_hp,
            
-        ]);
-        
+        // ]);
+
+        $file = $request->file('foto');
+        $filename = $request->file('filepdf');
+
+        $karyawan = new Karyawan;
+        $karyawan->nama  = $request->nama;
+        $karyawan->alamat   = $request->alamat;
+        $karyawan->jabatan  = $request->jabatan;
+        $karyawan->no_hp   = $request->no_hp;
+        $karyawan->foto = $file->getClientOriginalName();
+        $karyawan->filepdf = $filename->getClientOriginalName();
+
+        $tujuan_upload = 'foto_karyawan';
+        $file->move($tujuan_upload,$file->getClientOriginalName());
+
+        $tujuan_uploadpdf = 'pdf_karyawan';
+        $filename->move($tujuan_uploadpdf,$filename->getClientOriginalName());
+
+        $karyawan->save();
         return redirect()->route('karyawan.index')->with('msg', 'Data anda telah diinputkan!');
     }
 
@@ -74,14 +94,35 @@ class DataKaryawan extends Controller
 
     public function update(Request $request, $id)
     {
-        $validasi =  $request->validate([
+        $request->validate([
             'nama' => 'required|max:100',
             'alamat' => 'required',
             'jabatan' => 'required|max:100',
             'no_hp' => 'required|max:12',
+            'foto' => 'required|file|image|mimes:jpeg,png,jpg|max:2048',
+            'filepdf' => 'required|file|mimes:pdf',
         ]);
 
-        Karyawan::whereId($id)->update($validasi);
+        $file = $request->file('foto');
+        $filename = $request->file('filepdf');
+
+        // Karyawan::whereId($id)->update($validasi);
+
+        $karyawan = Karyawan::find($id);
+        $karyawan->nama  = $request->nama;
+        $karyawan->alamat   = $request->alamat;
+        $karyawan->jabatan  = $request->jabatan;
+        $karyawan->no_hp   = $request->no_hp;
+        $karyawan->foto = $file->getClientOriginalName();
+        $karyawan->filepdf = $filename->getClientOriginalName();
+
+        $tujuan_upload = 'foto_karyawan';
+        $file->move($tujuan_upload,$file->getClientOriginalName());
+
+        $tujuan_uploadpdf = 'pdf_karyawan';
+        $filename->move($tujuan_uploadpdf,$filename->getClientOriginalName());
+
+        $karyawan->save();
         return redirect()->route('karyawan.index')->with('msg', 'Data anda telah diupdate!');
     }
 

@@ -8,7 +8,7 @@ class Karyawan extends Model
 {
     protected $table = 'karyawan';
     protected $primaryKey = 'id';
-    protected $fillable = ['nama','alamat','jabatan','no_hp'];
+    protected $fillable = ['nama','alamat','jabatan','no_hp','foto','filepdf'];
 
     
 }

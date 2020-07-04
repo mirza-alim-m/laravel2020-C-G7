@@ -28,6 +28,8 @@
                     <th scope="col">Alamat</th>
                     <th scope="col">Jabatan</th>
                     <th scope="col">No Hp</th>
+                    <th scope="col">Foto</th>
+                    <th scope="col">Link Pdf</th>
                     <th scope="col">Action</th>
                     <th></th>
                     </tr>
@@ -53,6 +55,19 @@
                     { data: 'alamat', name: 'alamat' },
                     { data: 'jabatan', name: 'jabatan' },
                     { data: 'no_hp', name: 'no_hp' },
+                    { data: 'foto', name: 'foto',
+                        render: function( data, type, full, meta ) {
+                            return "<img src=\"foto_karyawan/" + data + "\" width=\"80\" height=\"100\" class=\"img-fluid img-thumbnails\"/>";
+                        }
+                        },
+                    { data: 'filepdf', name: 'filepdf', 
+                        render: function( data, type, full, meta ) {
+                        if(data == null){
+                          return '<small class="text-muted">Belum upload</small>';
+                        }else{
+                          return "<a class='btn btn-rounded btn-success btn-sm' href=\"pdf_karyawan/" + data + "\" target='_blank'>PDF</a>"; 
+                        }
+                      }},
                     {data: 'action', name: 'action', orderable: false, searchable: false},
                 ]
             });

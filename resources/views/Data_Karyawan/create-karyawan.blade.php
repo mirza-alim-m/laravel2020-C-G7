@@ -29,7 +29,7 @@
                         </div>
                     @endif
 
-                    <form action="{{ route('karyawan.store') }}" method="POST">
+                    <form action="{{ route('karyawan.store') }}" method="POST" enctype="multipart/form-data">
                         {{ csrf_field() }}
                       
                             <div class="col-xs-12 col-sm-12 col-md-12">
@@ -57,6 +57,15 @@
                                     <input type="text" class="form-control" name="no_hp" placeholder="no_hp">
                                 </div>
                             </div>
+                            <div class="form-group">
+                                <label for="nama">Foto</label></br>
+                                <input type="file" name="foto" placeholder="Foto Karyawan">
+                            </div>
+                            <div class="form-group">
+                                <label for="nama">File</label></br>
+                                <input type="file" name="filepdf" placeholder="File PDF">
+                            </div>
+
                             <div class="col-xs-12 col-sm-12 col-md-12 text-center">
                                     <button type="submit" class="btn btn-success">Submit</button>
                             </div>
