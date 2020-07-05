@@ -18,6 +18,8 @@ class CreatePelangganTable extends Migration
             $table->string('nama', 100);
             $table->text('alamat');
             $table->string('no_hp', 20);
+            $table->string('foto', 255)->nullable();
+            $table->string('filepdf', 255)->nullable();
             $table->timestamps();
         });
     }

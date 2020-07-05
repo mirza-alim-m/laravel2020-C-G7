@@ -8,7 +8,7 @@ class Pelanggan extends Model
 {
     protected $table = 'pelanggan';
     protected $primaryKey = 'id';
-    protected $fillable = ['nama','alamat','no_hp'];
+    protected $fillable = ['nama','alamat','no_hp', 'foto','filepdf'];
 
     // satu pelanggan hanya punya banyak transaksi
     public function transaksi(){

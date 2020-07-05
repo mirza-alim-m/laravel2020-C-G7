@@ -35,6 +35,11 @@
                             <td style="border:0">:</td>
                             <td style="border:0">{{ $dataPelanggan['no_hp'] }}</td>
                           </tr>
+                           <tr>
+                            <th style="border:0">Foto</th>
+                            <td style="border:0">:</td>
+                            <td><img src='{{ Storage::url("public/foto/".$dataPelanggan->foto) }}' class='img-fluid img-thumbnails' style='width:80px; height:100px;'></td>
+                        </tr>
                         @else
                             <td colspan="4">Tidak dapat menampilkan detail data</td>
                         @endif

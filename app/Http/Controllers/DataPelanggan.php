@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 use App\Pelanggan;
 use DataTables;
 
@@ -65,13 +66,26 @@ class DataPelanggan extends Controller
             'nama' => 'required|max:100',
             'alamat' => 'required',
             'no_hp' => 'required|max:12',
+            'foto' => 'file|image|mimes:jpeg,png,jpg|max:2048',
+            'filepdf' => 'file|mimes:pdf',
         ]);
-        Pelanggan::create([
-            'nama' => $request->nama,
-            'alamat' => $request->alamat,
-            'no_hp' => $request->no_hp,
-           
-        ]);
+
+        $pelanggan = new Pelanggan;
+        $pelanggan->nama  = $request->nama;
+        $pelanggan->alamat   = $request->alamat;
+        $pelanggan->no_hp   = $request->no_hp;
+        
+        if($foto = $request->file('foto')){
+            $pathFoto = Storage::putFile('public/foto', $foto);
+            $pelanggan->foto = basename($pathFoto);
+        }
+
+        if($pdf = $request->file('filepdf')){
+            $pathPdf = Storage::putFile('public/pdf', $pdf);
+            $pelanggan->filepdf = basename($pathPdf);
+        }
+
+        $pelanggan->save();
         
         return redirect()->route('pelanggan.index')->with('msg', 'Data anda telah diinputkan!');
     }
@@ -113,9 +127,27 @@ class DataPelanggan extends Controller
             'nama' => 'required|max:100',
             'alamat' => 'required',
             'no_hp' => 'required|max:12',
+             'foto' => 'file|image|mimes:jpeg,png,jpg|max:2048',
+            'filepdf' => 'file|mimes:pdf'
         ]);
 
-        Pelanggan::whereId($id)->update($validasi);
+        $pelanggan = Pelanggan::find($id);
+        $pelanggan->nama  = $request->nama;
+        $pelanggan->alamat   = $request->alamat;
+        $pelanggan->no_hp   = $request->no_hp;
+        
+        if($foto = $request->file('foto')){
+            $pathFoto = Storage::putFile('public/foto', $foto);
+            $pelanggan->foto = basename($pathFoto);
+        }
+
+        if($pdf = $request->file('filepdf')){
+            $pathPdf = Storage::putFile('public/pdf', $pdf);
+            $pelanggan->filepdf = basename($pathPdf);
+        }
+
+        $pelanggan->save();
+
         return redirect()->route('pelanggan.index')->with('msg', 'Data anda telah diupdate!');
     }
 

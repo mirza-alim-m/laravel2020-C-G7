@@ -28,6 +28,8 @@
                     <th scope="col">Nama Pelanggan</th>
                     <th scope="col">Alamat</th>
                     <th scope="col">No Hp</th>
+                    <th scope="col">Foto</th>
+                    <th scope="col">Link Pdf</th>
                     <th scope="col">Action</th>
                     
                     <th></th>
@@ -51,6 +53,22 @@
                     { data: 'nama', name: 'nama' },
                     { data: 'alamat', name: 'alamat' },
                     { data: 'no_hp', name: 'no_hp' },
+                    { data: 'foto', name: 'foto',
+                        render: function( data, type, full, meta ) {
+                            if(data == null){
+                              return '<small class="text-muted">Belum upload</small>';
+                            }else{
+                                return "<img src=\"{{ Storage::url('public/foto/') }}" + data + "\" width=\"80\" height=\"100\" class=\"img-fluid img-thumbnails\"/>";
+                            }
+                        }},
+                    { data: 'filepdf', name: 'filepdf', 
+                        render: function( data, type, full, meta ) {
+                        if(data == null){
+                          return '<small class="text-muted">Belum upload</small>';
+                        }else{
+                          return "<a class='btn btn-rounded btn-success btn-sm' href=\"{{ Storage::url('public/pdf/') }}" + data + "\" target='_blank'>PDF</a>"; 
+                        }
+                      }},
                     {data: 'action', name: 'action', orderable: false, searchable: false},
                 ]
             });
