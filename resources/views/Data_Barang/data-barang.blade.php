@@ -28,6 +28,8 @@
                     <th scope="col">Jenis Barang</th>
                     <th scope="col">Type Barang</th>
                     <th scope="col">Jumlah Barang</th>
+                    <th scope="col">Foto</th>
+                    <th scope="col">Pdf</th>
                     <th scope="col">Action</th>
                     
                     <th></th>
@@ -52,7 +54,21 @@
                     { data: 'jenis', name: 'jenis' },
                     { data: 'type', name: 'type' },
                     { data: 'jumlah', name: 'jumlah' },
+                    { data: 'foto', name: 'foto',
+                        render: function( data, type, full, meta ) {
+                            return "<img src=\"foto_barang/" + data + "\" width=\"80\" height=\"100\" class=\"img-fluid img-thumbnails\"/>";
+                        }
+                        },
+                    { data: 'filepdf', name: 'filepdf', 
+                        render: function( data, type, full, meta ) {
+                        if(data == null){
+                          return '<small class="text-muted">Belum upload</small>';
+                        }else{
+                          return "<a class='btn btn-rounded btn-success btn-sm' href=\"pdf_barang/" + data + "\" target='_blank'>PDF</a>"; 
+                        }
+                      }},
                     {data: 'action', name: 'action', orderable: false, searchable: false},
+                    
                 ]
             });
         });

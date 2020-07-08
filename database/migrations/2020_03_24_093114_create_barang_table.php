@@ -18,6 +18,8 @@ class CreateBarangTable extends Migration
             $table->string('jenis', 100);
             $table->string('type', 100);
             $table->string('jumlah', 100);
+            $table->string('foto', 255);
+            $table->string('filepdf', 255);
             $table->timestamps();
         });
     }
