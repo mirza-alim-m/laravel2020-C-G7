@@ -56,7 +56,7 @@
                     { data: 'jumlah', name: 'jumlah' },
                     { data: 'foto', name: 'foto',
                         render: function( data, type, full, meta ) {
-                            return "<img src=\"foto_barang/" + data + "\" width=\"80\" height=\"100\" class=\"img-fluid img-thumbnails\"/>";
+                            return "<img src=\"{{ Storage::url('public/foto/') }}" + data + "\" width=\"80\" height=\"100\" class=\"img-fluid img-thumbnails\"/>";
                         }
                         },
                     { data: 'filepdf', name: 'filepdf', 
@@ -64,7 +64,7 @@
                         if(data == null){
                           return '<small class="text-muted">Belum upload</small>';
                         }else{
-                          return "<a class='btn btn-rounded btn-success btn-sm' href=\"pdf_barang/" + data + "\" target='_blank'>PDF</a>"; 
+                          return "<a class='btn btn-rounded btn-success btn-sm' href=\"{{ Storage::url('public/pdf/') }}" + data + "\" target='_blank'>PDF</a>"; 
                         }
                       }},
                     {data: 'action', name: 'action', orderable: false, searchable: false},
