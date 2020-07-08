@@ -178,6 +178,7 @@ return [
 
         // Custom 
         Yajra\DataTables\DataTablesServiceProvider::class,
+        Laravel\Socialite\SocialiteServiceProvider::class,
 
     ],
 
@@ -233,6 +234,7 @@ return [
 
         // Custom
         'DataTables' => Yajra\DataTables\Facades\DataTables::class,
+        'Socialite' => Laravel\Socialite\Facades\Socialite::class,
 
 
     ],

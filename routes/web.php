@@ -32,6 +32,9 @@ Route::get('/', function () {
 
 
 Auth::routes();
+// SOciality
+Route::get('auth/google', 'GoogleController@redirectToGoogle');
+Route::get('auth/google/callback', 'GoogleController@handleGoogleCallback');
 
 // route dashboard (setelah login berhasil)
 Route::get('/home', 'HomeController@index')->name('home');
