@@ -31,17 +31,19 @@ Route::get('/', function () {
 
 
 
-Auth::routes();
+Auth::routes(['verify' => true]);
+
 // SOciality
 Route::get('auth/google', 'GoogleController@redirectToGoogle');
 Route::get('auth/google/callback', 'GoogleController@handleGoogleCallback');
+
 
 // route dashboard (setelah login berhasil)
 Route::get('/home', 'HomeController@index')->name('home');
 
 // route untuk menghindari akses sistem sebelum user login
 // jadi user login dulu baru bisa akses sistem management / CRUD nya 
-Route::group(['middleware' => 'auth'], function() {
+Route::group(['middleware' => ['auth', 'verified']], function() {
 	Route::resource('/karyawan', 'DataKaryawan');
 	Route::get('karyawan/json/fetch','DataKaryawan@json')->name('karyawan.fetch');
 
