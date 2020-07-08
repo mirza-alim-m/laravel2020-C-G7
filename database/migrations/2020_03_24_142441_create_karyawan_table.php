@@ -19,8 +19,8 @@ class CreateKaryawanTable extends Migration
             $table->text('alamat');
             $table->string('jabatan', 100);
             $table->string('no_hp', 20);
-            $table->string('foto', 255);
-            $table->string('filepdf', 255);
+            $table->string('foto', 255)->nullable();
+            $table->string('filepdf', 255)->nullable();
             $table->timestamps();
         });
     }

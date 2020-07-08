@@ -52,4 +52,6 @@ Route::group(['middleware' => ['auth', 'verified']], function() {
 
 	Route::resource('pelanggan', 'DataPelanggan');
 	Route::resource('kategori', 'KategoriBarangController');
+
+	Route::resource('profile', "ProfileController");
 });

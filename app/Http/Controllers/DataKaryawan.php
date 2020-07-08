@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 use App\Karyawan;
 use DataTables;
 use DB;
@@ -48,8 +49,8 @@ class DataKaryawan extends Controller
             'alamat' => 'required',
             'jabatan' => 'required|max:100',
             'no_hp' => 'required|max:12',
-            'foto' => 'required|file|image|mimes:jpeg,png,jpg|max:2048',
-            'filepdf' => 'required|file|mimes:pdf',
+            'foto' => 'file|image|mimes:jpeg,png,jpg|max:2048',
+            'filepdf' => 'file|mimes:pdf',
         ]);
         // Karyawan::create([
         //     'nama' => $request->nama,
@@ -67,14 +68,24 @@ class DataKaryawan extends Controller
         $karyawan->alamat   = $request->alamat;
         $karyawan->jabatan  = $request->jabatan;
         $karyawan->no_hp   = $request->no_hp;
-        $karyawan->foto = $file->getClientOriginalName();
-        $karyawan->filepdf = $filename->getClientOriginalName();
+        // $karyawan->foto = $file->getClientOriginalName();
+        // $karyawan->filepdf = $filename->getClientOriginalName();
 
-        $tujuan_upload = 'foto_karyawan';
-        $file->move($tujuan_upload,$file->getClientOriginalName());
+        // $tujuan_upload = 'foto_karyawan';
+        // $file->move($tujuan_upload,$file->getClientOriginalName());
 
-        $tujuan_uploadpdf = 'pdf_karyawan';
-        $filename->move($tujuan_uploadpdf,$filename->getClientOriginalName());
+        // $tujuan_uploadpdf = 'pdf_karyawan';
+        // $filename->move($tujuan_uploadpdf,$filename->getClientOriginalName());
+
+        if($foto = $request->file('foto')){
+            $pathFoto = Storage::putFile('public/foto', $foto);
+            $karyawan->foto = basename($pathFoto);
+        }
+
+        if($pdf = $request->file('filepdf')){
+            $pathPdf = Storage::putFile('public/pdf', $pdf);
+            $karyawan->filepdf = basename($pathPdf);
+        }
 
         $karyawan->save();
         return redirect()->route('karyawan.index')->with('msg', 'Data anda telah diinputkan!');
@@ -99,8 +110,8 @@ class DataKaryawan extends Controller
             'alamat' => 'required',
             'jabatan' => 'required|max:100',
             'no_hp' => 'required|max:12',
-            'foto' => 'required|file|image|mimes:jpeg,png,jpg|max:2048',
-            'filepdf' => 'required|file|mimes:pdf',
+            'foto' => 'file|image|mimes:jpeg,png,jpg|max:2048',
+            'filepdf' => 'file|mimes:pdf',
         ]);
 
         $file = $request->file('foto');
@@ -113,14 +124,24 @@ class DataKaryawan extends Controller
         $karyawan->alamat   = $request->alamat;
         $karyawan->jabatan  = $request->jabatan;
         $karyawan->no_hp   = $request->no_hp;
-        $karyawan->foto = $file->getClientOriginalName();
-        $karyawan->filepdf = $filename->getClientOriginalName();
+        // $karyawan->foto = $file->getClientOriginalName();
+        // $karyawan->filepdf = $filename->getClientOriginalName();
 
-        $tujuan_upload = 'foto_karyawan';
-        $file->move($tujuan_upload,$file->getClientOriginalName());
+        // $tujuan_upload = 'foto_karyawan';
+        // $file->move($tujuan_upload,$file->getClientOriginalName());
 
-        $tujuan_uploadpdf = 'pdf_karyawan';
-        $filename->move($tujuan_uploadpdf,$filename->getClientOriginalName());
+        // $tujuan_uploadpdf = 'pdf_karyawan';
+        // $filename->move($tujuan_uploadpdf,$filename->getClientOriginalName());
+
+        if($foto = $request->file('foto')){
+            $pathFoto = Storage::putFile('public/foto', $foto);
+            $karyawan->foto = basename($pathFoto);
+        }
+
+        if($pdf = $request->file('filepdf')){
+            $pathPdf = Storage::putFile('public/pdf', $pdf);
+            $karyawan->filepdf = basename($pathPdf);
+        }
 
         $karyawan->save();
         return redirect()->route('karyawan.index')->with('msg', 'Data anda telah diupdate!');
@@ -129,6 +150,14 @@ class DataKaryawan extends Controller
     public function destroy($id)
     {
          $Karyawan = Karyawan::findOrFail($id);
+
+        if(Storage::exists('public/pdf/'.$Karyawan->pdf) == 1){
+            Storage::delete('public/pdf/'.$Karyawan->pdf);
+        }
+
+        if(Storage::exists('public/foto/'.$Karyawan->foto) == 1){
+            Storage::delete('public/foto/'.$Karyawan->foto);
+        }
         $Karyawan->delete();
         return redirect()->route('karyawan.index')->with('msg', 'Data anda telah dihapus!');
     }

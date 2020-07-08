@@ -38,6 +38,9 @@
                 <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-hospopup="true" aria-expanded="false" href="#">{{ Auth::user()->name }}</a>
                 
                 <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                    <a class="dropdown-item" href="{{ url('profile') }}">
+                        Ubah Password
+                    </a>
                     <a class="dropdown-item" href="{{ route('logout') }}"onclick="event.preventDefault();
                         document.getElementById('logout-form').submit();">{{ __('Logout') }}
                     </a>
