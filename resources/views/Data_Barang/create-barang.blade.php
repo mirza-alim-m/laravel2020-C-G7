@@ -65,6 +65,14 @@
                                     <input type="text" class="form-control" name="jumlah" placeholder="Jumlah ">
                                 </div>
                             </div>
+                            <div class="form-group">
+                                <label for="nama">Foto</label></br>
+                                <input type="file" name="foto" placeholder="Foto Karyawan">
+                            </div>
+                            <div class="form-group">
+                                <label for="nama">File</label></br>
+                                <input type="file" name="filepdf" placeholder="File PDF">
+                            </div>
                             <div class="col-xs-12 col-sm-12 col-md-12 text-center">
                                     <button type="submit" class="btn btn-success">Submit</button>
                             </div>

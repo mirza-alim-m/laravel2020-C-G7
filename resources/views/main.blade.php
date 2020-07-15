@@ -29,7 +29,6 @@
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                 <div class="navbar-nav">
                     <a class="nav-item nav-link" href="/barang">Barang</a>
-                    <a class="nav-item nav-link" href="/kategori">Kategori Barang</a>
                     <a class="nav-item nav-link" href="/karyawan">Karyawan</a>
                     <a class="nav-item nav-link" href="/pelanggan">Pelanggan</a>
                 </div>

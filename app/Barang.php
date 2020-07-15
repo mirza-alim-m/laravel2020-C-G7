@@ -8,7 +8,7 @@ class Barang extends Model
 {
     protected $table = 'barang';
     protected $primaryKey = 'id';
-    protected $fillable = ['jenis', "id_kategori", 'type','jumlah'];
+    protected $fillable = ['jenis', "id_kategori", 'type','jumlah','foto','filepdf'];
 
     // satu barang hanya memiliki satu kategori 
     public function barangkategori()

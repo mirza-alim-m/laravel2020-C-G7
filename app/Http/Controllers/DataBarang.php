@@ -5,7 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Barang;
 use DataTables;
+use Storage;
 use DB;
+
 class DataBarang extends Controller
 {
     /**
@@ -60,12 +62,27 @@ class DataBarang extends Controller
             'id_kategori' => 'required',
             'type' => 'required|max:100',
             'jumlah' => 'required|max:100',
+            'foto' => 'file|image|mimes:jpeg,png,jpg|max:2048',
+            'filepdf' => 'file|mimes:pdf',
         ]);
+
+        $file = $request->file('foto');
+        $filename = $request->file('filepdf');
+        
         $barang = new Barang;
         $barang->jenis = $request->jenis;
         $barang->id_kategori = $request->id_kategori;
         $barang->type = $request->type;
         $barang->jumlah = $request->jumlah;
+        if($foto = $request->file('foto')){
+            $pathFoto = Storage::putFile('public/foto', $foto);
+            $barang->foto = basename($pathFoto);
+        }
+
+        if($pdf = $request->file('filepdf')){
+            $pathPdf = Storage::putFile('public/pdf', $pdf);
+            $barang->filepdf = basename($pathPdf);
+        }
         $barang->save();
         
         return redirect()->route('barang.index')->with('msg', 'Data anda telah diinputkan!');
@@ -108,6 +125,8 @@ class DataBarang extends Controller
             'jenis' => 'required|max:100',
             'type' => 'required|max:100',
             'jumlah' => 'required|max:100',
+            'foto' => 'file|image|mimes:jpeg,png,jpg|max:2048',
+            'filepdf' => 'file|mimes:pdf',
         ]);
 
         $barang = Barang::findOrFail($id);

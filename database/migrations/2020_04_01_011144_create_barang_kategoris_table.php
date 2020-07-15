@@ -16,6 +16,8 @@ class CreateBarangKategorisTable extends Migration
         Schema::create('barang_kategori', function (Blueprint $table) {
             $table->increments('id');
             $table->string('nama_kategori');
+            $table->string('foto', 255)->nullable();
+            $table->string('filepdf', 255)->nullable();
             $table->timestamps();
         });
     }

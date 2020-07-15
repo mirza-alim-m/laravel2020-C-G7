@@ -1,10 +1,10 @@
 <?php
 
-use Illuminate\Database\Seeder;
-use App\Barang;
+use App\BarangKategori;
 use Faker\Factory as Faker;
+use Illuminate\Database\Seeder;
 
-class DataBarangSeeder extends Seeder
+class KategoriSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -16,10 +16,8 @@ class DataBarangSeeder extends Seeder
         $faker = Faker::create('id_ID');
  
     	for($i = 1; $i <= 25; $i++){
-    		Barang::create([
-    			'jenis' => $faker->name,
-    			'type' => $faker->address,
-    			'jumlah' => $faker->e164PhoneNumber,
+    		BarangKategori::create([
+                'nama_kategori' => $faker->randomElement(['Smarphone','Tab']),
                 'foto' => $faker->text($maxNbChars = 10).'jpg',
                 'filepdf' => $faker->text($maxNbChars = 10).'pdf'
     		]);
