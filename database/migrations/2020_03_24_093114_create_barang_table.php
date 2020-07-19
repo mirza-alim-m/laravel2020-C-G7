@@ -14,12 +14,12 @@ class CreateBarangTable extends Migration
     public function up()
     {
         Schema::create('barang', function (Blueprint $table) {
-            $table->increments('id');
+            $table->bigIncrements('id');
             $table->string('jenis', 100);
             $table->string('type', 100);
             $table->string('jumlah', 100);
-            $table->string('foto', 255);
-            $table->string('filepdf', 255);
+            $table->string('foto')->nullable();
+            $table->string('filepdf')->nullable();
             $table->timestamps();
         });
     }

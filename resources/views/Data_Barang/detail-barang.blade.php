@@ -19,21 +19,21 @@
                 <div class="card-body">
                     
                     <table class="table">
-                        @if ($dataBarang)
+                        @if ($barang)
                           <tr>
                             <th style="border:0">jenis</th>
                             <td style="border:0">:</td>
-                            <td style="border:0">{{ $dataBarang['jenis'] }}</td>
+                            <td style="border:0">{{ $barang['jenis'] }}</td>
                           </tr>
                           <tr>
                             <th style="border:0">Type</th>
                             <td style="border:0">:</td>
-                            <td style="border:0">{{ $dataBarang['type'] }}</td>
+                            <td style="border:0">{{ $barang['type'] }}</td>
                           </tr>
                           <tr>
                             <th style="border:0">Jumlah</th>
                             <td style="border:0">:</td>
-                            <td style="border:0">{{ $dataBarang['jumlah'] }}</td>
+                            <td style="border:0">{{ $barang['jumlah'] }}</td>
                           </tr>
                         @else
                             <td colspan="4">Tidak dapat menampilkan detail data</td>

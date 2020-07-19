@@ -18,19 +18,9 @@
                 </div>
                 <div class="card-body">
                     
-                    @if ($errors->any())
-                        <div class="alert alert-danger">
-                            <strong>Whoops!</strong> There were some problems with your input.<br><br>
-                            <ul>
-                                @foreach ($errors->all() as $error)
-                                    <li>{{ $error }}</li>
-                                @endforeach
-                            </ul>
-                        </div>
-                    @endif
-
-                    @if ($dataBarang)
-                    <form action="{{ route('barang.update', $dataBarang['id']) }}" method="POST">
+                @foreach($barang as $brg)
+                    @if ($brg)
+                    <form action="{{ route('barang.update', $brg->id) }}" method="POST" enctype="multipart/form-data">
                         {{ csrf_field() }}
                         {{ method_field('PUT') }}
                       
@@ -38,32 +28,28 @@
                             <div class="col-xs-12 col-sm-12 col-md-12">
                                 <div class="form-group">
                                     <strong>Jenis:</strong>
-                                    <input type="text" value="{{ $dataBarang['jenis'] }}" name="jenis" class="form-control" placeholder="Jenis ">
-                                </div>
-                            </div>
-                            <div class="col-xs-12 col-sm-12 col-md-12">
-                                <div class="form-group">
-                                    <strong>Kategori:</strong>
-                                    <select name="id_kategori" class="form-control" required>
-                                      <option value="" selected disabled>Pilih Kategori</option>
-                                        @php $kategori = App\BarangKategori::all(); @endphp
-                                        @foreach ($kategori as $data)
-                                        <option value="{{ $data['id'] }}" {{ $dataBarang['id_kategori'] == $data['id'] ? 'selected':''  }} >{{ $data['nama_kategori'] }}</option>
-                                        @endforeach
-                                    </select>
+                                    <input type="text" value="{{ $brg['jenis'] }}" name="jenis" class="form-control" placeholder="Jenis ">
                                 </div>
                             </div>
                             <div class="col-xs-12 col-sm-12 col-md-12">
                                 <div class="form-group">
                                     <strong>Type:</strong>
-                                    <input type="text" value="{{ $dataBarang['type'] }}" class="form-control" name="type" placeholder="type ">
+                                    <input type="text" value="{{ $brg['type'] }}" class="form-control" name="type" placeholder="type ">
                                 </div>
                             </div>
                             <div class="col-xs-12 col-sm-12 col-md-12">
                                 <div class="form-group">
                                     <strong>Jumlah:</strong>
-                                    <input type="text" value="{{ $dataBarang['jumlah'] }}" class="form-control" name="jumlah" placeholder="Jumlah ">
+                                    <input type="text" value="{{ $brg['jumlah'] }}" class="form-control" name="jumlah" placeholder="Jumlah ">
                                 </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="nama">Foto</label></br>
+                                <input type="file" name="foto" placeholder="Foto">
+                            </div>
+                            <div class="form-group">
+                                <label for="nama">File</label></br>
+                                <input type="file" name="filepdf" placeholder="File Pdf">
                             </div>
                             <div class="col-xs-12 col-sm-12 col-md-12 text-center">
                                     <button type="submit" class="btn btn-primary">Submit</button>
@@ -71,6 +57,7 @@
                         </div>
                     </form>
                     @endif
+                    @endforeach
 
                 </div>
             </div>

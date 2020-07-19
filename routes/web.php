@@ -51,7 +51,7 @@ Route::group(['middleware' => ['auth', 'verified']], function() {
 	Route::get('barang/json/fetch','DataBarang@json')->name('barang.fetch');
 
 	Route::resource('pelanggan', 'DataPelanggan');
-	Route::resource('kategori', 'KategoriBarangController');
+	// Route::resource('kategori', 'KategoriBarangController');
 
 	Route::resource('profile', "ProfileController");
 });
