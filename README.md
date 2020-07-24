@@ -5,7 +5,8 @@
 - Lalu buka ".env" pada text editor dan ubah nama database
 - Ketikan perintah "composer install"
 - Lalu jalankan perintah "php artisan key:generate"
-- Import laravel2020-c-g7.sql yg berada di folder database
+- Lalu ketikan perintah "php artisan migrate --seed"
+- Setelah itu lanjutkan dengan perintah "php artisan storage:link"
 - Project sudah bisa dilanjakan dengan perintah "php artisan serve"
 
 # Kelompok 7 | SI Penjualan Elektronik
