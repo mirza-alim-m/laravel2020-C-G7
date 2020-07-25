@@ -1,8 +1,7 @@
 # Cara Menjalankan Project ini
 - Clone atau Download Project ini
 - Setah itu buka project tersebut di Command Prompt Windows atau Git (Kami menggunakan Git)
-- Pada Git Bash ketikan perintah "cp .env.example .env"
-- Lalu buka ".env" pada text editor dan ubah nama database
+- Lalu konfigurasi ".env" pada text editor
 - Ketikan perintah "composer install"
 - Lalu jalankan perintah "php artisan key:generate"
 - Lalu ketikan perintah "php artisan migrate --seed"
