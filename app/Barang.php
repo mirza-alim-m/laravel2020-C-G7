@@ -10,9 +10,5 @@ class Barang extends Model
     protected $primaryKey = 'id';
     protected $fillable = ['jenis', 'type','jumlah','foto','filepdf'];
 
-    // satu barang hanya memiliki satu kategori 
-    // public function barangkategori()
-    // {
-    //     return $this->belongsTo('App\BarangKategori', 'id_kategori');
-    // }
+    // sa
 }

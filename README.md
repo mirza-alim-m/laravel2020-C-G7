@@ -6,6 +6,7 @@
 - Ketikan perintah "composer install"
 - Lalu jalankan perintah "php artisan key:generate"
 - Lalu ketikan perintah "php artisan migrate --seed"
+- Lalu ketikan perintah "php artisan storage:link"
 - Project sudah bisa dilanjakan dengan perintah "php artisan serve"
 
 # Kelompok 7 | SI Penjualan Elektronik
